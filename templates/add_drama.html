@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+</script>
+
+<br>
+
+<!-- Top Rated Kdramas to Watch-->
+<h2>Add New Kdrama</h2>
+
+<form id="addKdramaForm">
+
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Image URL:</label>
+        <input type="url" class="form-control" id="image" name="image" required>
+    </div>
+
+    <div class="form-group">
+        <label for="summary">Summary:</label>
+        <textarea class="form-control" id="summary" name="summary" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="actors">Actors (comma-separated):</label>
+        <input type="text" class="form-control" id="actors" name="actors" placeholder="e.g., Park Shin Hye, Park Hyung-Sik" required>
+    </div>
+
+    <div class="form-group">
+        <label for="genres">Genres (comma-separated):</label>
+        <input type="text" class="form-control" id="genres" name="genres" placeholder="e.g., Romance, Comedy, Crime" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

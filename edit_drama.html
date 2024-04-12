@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function confirmDiscard(id) {
+        if (confirm("Are you sure you want to discard changes?")) {
+            window.location.href = `/view/${id}`;
+        }
+
+        // Stays on the current page if not confirmed, allowing further edits
+    }
+</script>
+
+<br>
+
+<h1>Editing: {{ item.title }}</h1>
+
+<!-- When you submit, need to go to the /edit/id url for this item-->
+<!-- Then on backend, redirects user to view/id page-->
+<form action="/edit/{{item.id}}" method="post">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ item.title }}">
+    </div>
+
+    <div class="form-group">
+        <label for="image">Image URL:</label>
+        <input type="url" class="form-control" id="image" name="image" value="{{ item.image }}">
+    </div>
+
+    <div class="form-group">
+        <label for="summary">Summary:</label>
+        <textarea class="form-control" id="summary" name="summary" rows="3">{{ item.summary }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="actors">Actors (comma-separated):</label>
+        <input type="text" class="form-control" id="actors" name="actors" value="{{ item.actors|join(', ') }}">
+    </div>
+
+    <div class="form-group">
+        <label for="genres">Genres (comma-separated):</label>
+        <input type="text" class="form-control" id="genres" name="genres" value="{{ item.genres|join(', ') }}">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Submit">
+    <button type="button" class="btn btn-secondary" onclick="confirmDiscard({{ item.id }})">Discard Changes</button>
+</form>
+
+{% endblock %}

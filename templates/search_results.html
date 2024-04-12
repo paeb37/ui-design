@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- When this template is rendered, the variables are passed in -->
+<script>
+
+$(document).ready(function() {
+
+    items = {{ items | tojson }};
+
+    // console.log(items.length); // should be empty list?
+
+    query = {{ query | tojson }};
+
+    $(document).trigger('searchResultsLoaded');
+
+    /*
+    var items = {{ items | tojson }};
+    var query = {{ query | tojson }};
+
+    if (items) { // items have been returned by the server
+        $(document).trigger('itemsPopulated');
+    }
+    */
+
+});
+
+</script>
+
+<!-- Already wrapped in container div in layout.html -->
+
+<h1>
+    Search results for "{{query}}"
+</h1>
+
+<h3 id="resultsCount">
+</h3>
+
+<br>
+
+<div id="resultsList">
+</div>
+
+{% endblock %}

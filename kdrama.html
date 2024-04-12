@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function goToEditPage(id) {
+        window.location.href = `/edit/${id}`;
+    }
+</script>
+
+<div class="row"> <!-- Top row -->
+    <div class="col-md-6">
+
+        <br>
+        <!-- Content for the first column -->
+        <h1>
+            {{ item.title }}
+        </h1>
+
+        <br>
+        <img src="{{item.image}}" alt="Image" class="fixed-size-image">
+
+    </div>
+    <div class="col-md-6">
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Content for the second column -->
+        <span class="medium-text">Actors:</span>{{ item.actors|join(', ') }}
+
+        <br>
+
+        <!-- Content for the second column -->
+        <span class="medium-text">Genres:</span>{{ item.genres|join(', ') }}
+
+        <br>
+        <br>
+
+        <i>{{item.summary}}</i>
+
+        <br>
+        <br>
+
+        <!-- Discreet Edit button -->
+        <button onclick="goToEditPage({{ item.id }})" class="edit-button">Edit</button>
+    </div>
+</div>
+
+<br>
+
+<div class="custom-line"></div>
+
+<br>
+<!-- Content for second row -->
+<h2>
+    Similar Recommendations
+</h2>
+
+<br>
+
+<!-- Recommendations based on actor, genre-->
+<div class="row"> <!-- Top row -->
+    <div class="col-md-6"> <!-- Make each column flex and stretch to fill the height -->
+        <h4>By Actor: </h4>
+
+        <br>
+
+        {% if itemActor %}
+            <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+                <!-- Wrap the image in an <a> tag to make it clickable -->
+                <a href="/view/{{ itemActor.id }}">
+                    <img src="{{ itemActor.image }}" class="card-img-top" alt="{{ itemActor.title }}">
+                </a>
+                <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                    <h5 class="card-title">{{ itemActor.title }}</h5>
+                    <!-- Genres -->
+                    <p class="card-text"><strong>Genres:</strong> {{ itemActor.genres|join(', ') }}</p>
+                    <!-- Actors -->
+                    <p class="card-text"><strong>Actors:</strong> {{ itemActor.actors|join(', ') }}</p>
+                    <a href="/view/{{itemActor.id}}" class="btn btn-primary mt-auto">View Details</a> <!-- mt-auto pushes the button down -->
+                </div>
+            </div>
+
+        {% else %}
+
+        <div>
+            <h5>No similar kdramas found.</h5>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="col-md-6"> <!-- Make each column flex and stretch to fill the height -->
+        <h4>By Genre: </h4>
+
+        <br>
+
+        {% if itemGenre %}
+            <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+                <!-- Wrap the image in an <a> tag to make it clickable -->
+                <a href="/view/{{ itemGenre.id }}">
+                    <img src="{{ itemGenre.image }}" class="card-img-top" alt="{{ itemGenre.title }}">
+                </a>
+                <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                    <h5 class="card-title">{{ itemGenre.title }}</h5>
+                    <!-- Genres -->
+                    <p class="card-text"><strong>Genres:</strong> {{ itemGenre.genres|join(', ') }}</p>
+                    <!-- Actors -->
+                    <p class="card-text"><strong>Actors:</strong> {{ itemGenre.actors|join(', ') }}</p>
+                    <a href="/view/{{itemGenre.id}}" class="btn btn-primary mt-auto">View Details</a> <!-- mt-auto pushes the button down -->
+                </div>
+            </div>
+
+        {% else %}
+
+        <div>
+            <h5>No similar kdramas found.</h5>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
