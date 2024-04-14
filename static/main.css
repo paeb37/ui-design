@@ -2,22 +2,18 @@
     width: 400px;
     height: auto;
 }
-
 .highlight {
     font-weight: 800;
     /*color: #0000FF;*/
 }
-
 /* Custom CSS to ensure the card body expands to fill available space */
 .card-body {
     display: flex;
     flex-direction: column;
 }
-
 .card-body .btn {
     margin-top: auto; /* Pushes the button to the bottom of the card */
 }
-
 .edit-button {
     background-color: #f8f9fa; /* Light gray background */
     color: black;
@@ -31,42 +27,33 @@
     cursor: pointer;
     border-radius: 5px;
 }
-
 .medium-text{
     font-size: 25px;
     font-weight: 400;
     padding-right: 10px;
 }
-
 .custom-line {
     width: 100%; /* Full width of its container */
     height: 1px; /* Thickness of the line */
     background-color: darkgrey; /* Color of the line */
     border: none; /* Remove any default border */
-}
-  
+} 
 body {
     background-color: #FFFFF7;
 }
-
 /* one color scheme example*/
-
 .base {
     color: #004175;
 }
-
 .accent {
     color: #FF6B6B;
 }
-
 .lightGrey {
     color: #F0F0F0;
 }
-
 .darkGrey {
     color: #333333;
 }
-
 .intro {
     font-size: 20px;
     font-weight: 400;
@@ -75,15 +62,38 @@ body {
     position: relative;
     top: -10px;
 }
-
 .image-modified {
     height: 225px;
 }
-
 .home-space {
     margin-right: 27px;
 }
 .centering {
     position: relative;
     right: -493px;
+}
+.type-space1 {
+    margin-left: 28px;
+}
+.type-space2 {
+    margin-left: 8px;
+}
+.type-size {
+    height: 270px;
+    width: auto;
+}
+.type-bottom {
+    margin-top: 15px;
+}
+.type-bottom-text {
+    margin-left: 100px;
+    position: relative;
+    top: 11px;
+    color: grey;
+}
+.type-bottom-bottom {
+    margin-left: 180px;
+}
+.lesson-intro {
+    margin-top: 20px;
 }
