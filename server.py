@@ -9,7 +9,7 @@ current_id = 11 # starts at 11
 data = [
     {
         "id": 1,
-        "title": "Doctor Slump",
+        "title": "Card Types",
         "image": "https://www.whats-on-netflix.com/wp-content/uploads/2023/04/jtbc-doctor-slump-season-1-reportedly-coming-to-netflix-in-2023.png",
         "summary": "Once rivals in school, two brilliant doctors reunite by chance - each facing life's worst slump and unexpectedly finding solace in each other.",
         "actors": ["Park Shin Hye", "Park Hyung-Sik"],
@@ -18,7 +18,7 @@ data = [
 
     {
         "id": 2,
-        "title": "Destined With You",
+        "title": "Card Mechanics",
         "image": "https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/08/17/Rowoon-and-Jo-Bo-ah-star-in-Netflixs-Destined-With-You-K-drama.jpg",
         "summary": "A lawyer bound by a centuries-old curse becomes entangled with a civil servant who holds the key to his freedom.",
         "actors": ["Jo Bo-ah", "Rowoon"],
@@ -27,7 +27,7 @@ data = [
 
     {
         "id": 3,
-        "title": "Happiness",
+        "title": "Card Recognition",
         "image": "https://image.kpopmap.com/2021/10/Happiness-tvn-feature-image-2.jpg",
         "summary": "The residents of a high-rise apartment fight for their lives against a deadly infectious disease while Sae-bom and Yi-hyun try to find the person because of whom the virus spread.",
         "actors": ["Han Hyo-joo", "Park Hyung-sik"],

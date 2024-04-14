@@ -10,8 +10,14 @@
 <!-- Top Rated Kdramas to Watch-->
 <!-- Remember, this is wrapped in a container -->
 <h1>
-    YOU AND THE CARDS
+    You and the Cards
 </h1>
+
+<br>
+
+<div>
+    <span class="intro"><i>This site serves to introduce you the basics of card counting as well as provide some practice to help solidify the skill.</i></span>
+</div>
 
 <br>
 
@@ -29,7 +35,7 @@
                     <p class="card-text"><strong>Genres:</strong> {{ item.genres|join(', ') }}</p>
                     <!-- Actors -->
                     <p class="card-text"><strong>Actors:</strong> {{ item.actors|join(', ') }}</p>
-                    <a href="/view/{{item.id}}" class="btn btn-primary mt-auto">View Details</a> <!-- mt-auto pushes the button down -->
+                    <a href="/view/{{item.id}}" class="btn btn-primary mt-auto">Learn Lesson</a> <!-- mt-auto pushes the button down -->
                 </div>
             </div>
         </div>
