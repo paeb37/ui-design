@@ -120,3 +120,7 @@ body {
     position: relative;
     left: -27px;
 }
+.type-alt-size {
+    height: 350px;
+    width: auto;
+}

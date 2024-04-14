@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function goToEditPage(id) {
+        window.location.href = `/edit/${id}`;
+    }
+</script>
+
+<br>
+<!-- Content for the first column -->
+{% if number == 1 %}
+<h1>
+    You and Lower Numeral Cards
+</h1>
+{% elif number == 2 %}
+<h1>
+    You and Higher Numeral Cards
+</h1>
+{% elif number == 3 %}
+<h1>
+    You and Face Cards
+</h1>
+{% else %}
+<h1>
+    You and Ace Cards
+</h1>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div>
+    <span class="intro">
+        <i>The following are the cards in a deck of playing cards that makes up the lower numeral cards, #2 to #6.</i>
+    </span>
+</div>
+{% elif number == 2 %}
+<div>
+    <span class="intro">
+        <i>The following are the cards in a deck of playing cards that makes up the higher numeral cards, #7 to #9.</i>
+    </span>
+</div>
+{% elif number == 3 %}
+<div>
+    <span class="intro">
+        <i>Following cards in a deck of cards are face cards, Jack, Queen, and King and treated the same as a 10 card in counting.</i>
+    </span>
+</div>
+{% else %}
+<div>
+    <span class="intro">
+        <i>Following depicted is a card type in a deck of cards that is called an Ace and treated the same as a 10 card in counting.</i>
+    </span>
+</div>
+{% endif %}
+
+{% if number == 1 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='1to6alt.png') }}" alt="Logo" class="type-alt-size">
+    </div>
+</div>
+{% elif item.id == 2 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='7to9alt.png') }}" alt="Logo" class="type-alt-size">
+    </div>
+</div>
+{% elif number == 3 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='Faces.png') }}" alt="Logo" class="type-alt-size">
+    </div>
+</div>
+{% else %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='AceAlt.png') }}" alt="Logo" class="type-alt-size">
+    </div>
+</div>
+{% endif %}
+
+<br>
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/1" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+
+{% endblock %}

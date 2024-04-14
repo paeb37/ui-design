@@ -42,16 +42,24 @@
 {% if item.id == 1 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-3">
-        <img src="{{ url_for('static', filename='1to6.png') }}" alt="Logo" class="type-size">
+        <a href="/type/1">
+            <img src="{{ url_for('static', filename='1to6.png') }}" alt="Logo" class="type-size">
+        </a>
     </div>
     <div class="col-md-3">
-        <img src="{{ url_for('static', filename='7to9.png') }}" alt="Logo" class="type-size type-space1">
+        <a href="/type/2">
+            <img src="{{ url_for('static', filename='7to9.png') }}" alt="Logo" class="type-size type-space1">
+        </a>
     </div>
     <div class="col-md-3">
-        <img src="{{ url_for('static', filename='jtok.png') }}" alt="Logo" class="type-size type-space2">
+        <a href="/type/3">
+            <img src="{{ url_for('static', filename='jtok.png') }}" alt="Logo" class="type-size type-space2">
+        </a>
     </div>
     <div class="col-md-3">
-        <img src="{{ url_for('static', filename='a.png') }}" alt="Logo" class="type-size type-space3">
+        <a href="/type/4">
+            <img src="{{ url_for('static', filename='a.png') }}" alt="Logo" class="type-size type-space3">
+        </a>
     </div>
 </div>
 {% elif item.id == 2 %}
