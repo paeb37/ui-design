@@ -72,4 +72,18 @@ body {
     font-weight: 400;
     margin-bottom: 20px;
     color: grey;
+    position: relative;
+    top: -10px;
+}
+
+.image-modified {
+    height: 225px;
+}
+
+.home-space {
+    margin-right: 27px;
+}
+.centering {
+    position: relative;
+    right: -493px;
 }

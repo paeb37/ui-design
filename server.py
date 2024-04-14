@@ -10,28 +10,28 @@ data = [
     {
         "id": 1,
         "title": "Card Types",
-        "image": "https://www.whats-on-netflix.com/wp-content/uploads/2023/04/jtbc-doctor-slump-season-1-reportedly-coming-to-netflix-in-2023.png",
+        "image": "https://nairobiwire.com/wp-content/uploads/2021/10/how-many-clubs-are-there-in-a-deck-of-cards.jpg",
         "summary": "Once rivals in school, two brilliant doctors reunite by chance - each facing life's worst slump and unexpectedly finding solace in each other.",
-        "actors": ["Park Shin Hye", "Park Hyung-Sik"],
-        "genres": ["Romance", "Comedy", "Crime"],
+        "actors": ["Shorter"],
+        "genres": ["Medium"],
     },
 
     {
         "id": 2,
         "title": "Card Mechanics",
-        "image": "https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/08/17/Rowoon-and-Jo-Bo-ah-star-in-Netflixs-Destined-With-You-K-drama.jpg",
+        "image": "https://i.pinimg.com/originals/ba/bb/00/babb0057cd7526fc7df4893245449fda.jpg",
         "summary": "A lawyer bound by a centuries-old curse becomes entangled with a civil servant who holds the key to his freedom.",
-        "actors": ["Jo Bo-ah", "Rowoon"],
-        "genres": ["Romance", "Crime"],
+        "actors": ["Shorter"],
+        "genres": ["Shorter"],
     },
 
     {
         "id": 3,
         "title": "Card Recognition",
-        "image": "https://image.kpopmap.com/2021/10/Happiness-tvn-feature-image-2.jpg",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/illustration-of-magnifying-glass-and-eye-representing-fanatic-studio--science-photo-library.jpg",
         "summary": "The residents of a high-rise apartment fight for their lives against a deadly infectious disease while Sae-bom and Yi-hyun try to find the person because of whom the virus spread.",
-        "actors": ["Han Hyo-joo", "Park Hyung-sik"],
-        "genres": ["Crime", "Thriller"],
+        "actors": ["Longer"],
+        "genres": ["Medium"],
     },
 
     {
