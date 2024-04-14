@@ -154,8 +154,8 @@ def search():
 '''
 View a particular kdrama
 '''
-@app.route('/view/<int:id>', methods=['GET']) # GET request because just requesting info from server
-def view(id):
+@app.route('/learn/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def learn(id):
     item = None
 
     print(data)
