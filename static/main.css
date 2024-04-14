@@ -73,10 +73,13 @@ body {
     right: -493px;
 }
 .type-space1 {
-    margin-left: 28px;
+    margin-left: 30px;
 }
 .type-space2 {
-    margin-left: 8px;
+    margin-left: 6px;
+}
+.type-space3 {
+    margin-left: -8px;
 }
 .type-size {
     height: 270px;
@@ -96,4 +99,24 @@ body {
 }
 .lesson-intro {
     margin-top: 20px;
+}
+.type-size-3 {
+    height: 200px;
+    width: auto;
+}
+.type-2-adjust {
+    margin-left: 27px;
+}
+.type-3-adjust {
+    margin-left: -100px;
+}
+.mechanic-adjust {
+    margin-left: 70px;
+}
+.mechanic-adjust-2 {
+    margin-left: 40px;
+}
+.mech-text-adjust {
+    position: relative;
+    left: -27px;
 }
