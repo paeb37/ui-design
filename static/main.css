@@ -124,3 +124,18 @@ body {
     height: 350px;
     width: auto;
 }
+.type-overview {
+    margin-left: -55px;
+}
+.type-overview-alt-size {
+    height: 270px;
+    width: auto;
+}
+.mechanic-overview-alt-size {
+    height: 225px;
+    width: auto;
+}
+.recognition-overview-alt-size {
+    height: 225px;
+    width: auto;
+}

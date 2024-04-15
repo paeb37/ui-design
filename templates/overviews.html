@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function goToEditPage(id) {
+        window.location.href = `/edit/${id}`;
+    }
+</script>
+
+<br>
+<!-- Content for the first column -->
+{% if number == 1 %}
+<h1>
+    You and Card Types Overview
+</h1>
+{% elif number == 2 %}
+<h1>
+    You and Card Mechanics Overview
+</h1>
+{% elif number == 3 %}
+<h1>
+    You and Card Recognition Overview
+</h1>
+{% else %}
+<h1>
+    You and Ace Cards
+</h1>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div>
+    <span class="intro">
+        <i>Scanning types in counting cards in blackjack primes your brain to group cards and quickly note if they have an effect.</i>
+    </span>
+</div>
+{% elif number == 2 %}
+<div>
+    <span class="intro">
+        <i>Mechanics give insight on potential draws to inform when to hit or stand in a blackjack game for advantages.</i>
+    </span>
+</div>
+{% else %}
+<div>
+    <span class="intro">
+        <i>Recognition keeps track of probabilistic outcomes during a blackjack game as it progresses with draws using visual cues.</i>
+    </span>
+</div>
+{% endif %}
+
+{% if number == 1 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='TypeOverview.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+    </div>
+</div>
+{% elif number == 2 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='MechanicOverview.png') }}" alt="Logo" class="mechanic-overview-alt-size">
+    </div>
+</div>
+{% else %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='RecognitionOverview.png') }}" alt="Logo" class="recognition-overview-alt-size">
+    </div>
+</div>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/1" class="btn btn-primary mt-auto">Back</a></div>
+    <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
+    <div class="col-md-4"><a href="/overview/3" class="btn btn-primary mt-auto type-bottom-bottom">Take Quiz</a></div>
+</div>
+{% elif number == 2 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/2" class="btn btn-primary mt-auto">Back</a></div>
+    <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
+    <div class="col-md-4"><a href="/overview/3" class="btn btn-primary mt-auto type-bottom-bottom">Example</a></div>
+</div>
+{% else %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/3" class="btn btn-primary mt-auto">Back</a></div>
+    <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
+    <div class="col-md-4"><a href="/overview/3" class="btn btn-primary mt-auto type-bottom-bottom">Example</a></div>
+</div>
+{% endif %}
+
+{% endblock %}
