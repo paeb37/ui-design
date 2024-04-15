@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function goToEditPage(id) {
+        window.location.href = `/edit/${id}`;
+    }
+</script>
+
+<br>
+<!-- Content for the first column -->
+{% if number == 1 %}
+<h1>
+    You and Low Cards (+1)
+</h1>
+{% elif number == 2 %}
+<h1>
+    You and Neutral Cards (0)
+</h1>
+{% else %}
+<h1>
+    You and High Cards (-1)
+</h1>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div>
+    <span class="intro">
+        <i>The following are the cards in a deck of cards where if one of these cards gets drawn, add +1 to your mental count.</i>
+    </span>
+</div>
+{% elif number == 2 %}
+<div>
+    <span class="intro">
+        <i>The following are cards in a deck where if one of these cards gets drawn, your mental count remains the same.</i>
+    </span>
+</div>
+{% else %}
+<div>
+    <span class="intro">
+        <i>The following are the cards in a deck of cards where if one of these cards gets drawn, add -1 to your mental count.</i>
+    </span>
+</div>
+{% endif %}
+
+{% if number == 1 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <a href="/type/1">
+            <img src="{{ url_for('static', filename='1to6alt.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+        </a>
+    </div>
+</div>
+{% elif number == 2 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <a href="/type/2">
+            <img src="{{ url_for('static', filename='7to9alt.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+        </a>
+    </div>
+</div>
+{% else %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-4">
+        <img src="{{ url_for('static', filename='10.png') }}" alt="Logo" class="mech-alt-size">
+    </div>
+    <div class="col-md-4">
+        <a href="/type/3">
+            <img src="{{ url_for('static', filename='Faces.png') }}" alt="Logo" class="mech-alt-size recog">
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/type/4">
+            <img src="{{ url_for('static', filename='A2Alt.png') }}" alt="Logo" class="mech-alt-size recog2">
+        </a>
+    </div>
+</div>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/3" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% elif number == 2 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/3" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% else %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/3" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% endif %}
+
+{% endblock %}

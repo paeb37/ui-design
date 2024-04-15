@@ -59,25 +59,33 @@
 {% if number == 1 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='1to6alt.png') }}" alt="Logo" class="type-alt-size">
+        <a href="/recognition/1">
+            <img src="{{ url_for('static', filename='1to6alt.png') }}" alt="Logo" class="type-alt-size">
+        </a>
     </div>
 </div>
 {% elif item.id == 2 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='7to9alt.png') }}" alt="Logo" class="type-alt-size">
+        <a href="/recognition/2">
+            <img src="{{ url_for('static', filename='7to9alt.png') }}" alt="Logo" class="type-alt-size">
+        </a>
     </div>
 </div>
 {% elif number == 3 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='Faces.png') }}" alt="Logo" class="type-alt-size">
+        <a href="/recognition/3">
+            <img src="{{ url_for('static', filename='Faces.png') }}" alt="Logo" class="type-alt-size">
+        </a>
     </div>
 </div>
 {% else %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='AceAlt.png') }}" alt="Logo" class="type-alt-size">
+        <a href="/recognition/3">
+            <img src="{{ url_for('static', filename='AceAlt.png') }}" alt="Logo" class="type-alt-size">
+        </a>
     </div>
 </div>
 {% endif %}

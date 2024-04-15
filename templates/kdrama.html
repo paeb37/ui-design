@@ -83,13 +83,19 @@
 {% else %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='RedGroup.png') }}" alt="Logo" class="type-size-3">
+        <a href="/recognition/1">
+            <img src="{{ url_for('static', filename='RedGroup.png') }}" alt="Logo" class="type-size-3">
+        </a>
     </div>
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='GreyGroup.png') }}" alt="Logo" class="type-size-3 type-2-adjust">
+        <a href="/recognition/2">
+            <img src="{{ url_for('static', filename='GreyGroup.png') }}" alt="Logo" class="type-size-3 type-2-adjust">
+        </a>
     </div>
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='GreenGroup.png') }}" alt="Logo" class="type-size-3 type-3-adjust">
+        <a href="/recognition/3">
+            <img src="{{ url_for('static', filename='GreenGroup.png') }}" alt="Logo" class="type-size-3 type-3-adjust">
+        </a>
     </div>
 </div>
 {% endif %}
