@@ -3,6 +3,10 @@
 {% block content %}
 
 <script>
+    var current_time = "{{ current_time }}";
+    var elapsed_time = parseFloat("{{ elapsed_time }}").toFixed(2);
+    console.log("Current time:", current_time);
+    console.log("Elapsed time:", elapsed_time, "minutes");
 </script>
 
 <br>

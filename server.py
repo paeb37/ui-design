@@ -1,8 +1,18 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify, redirect, url_for
+from datetime import datetime
+import time
 
 app = Flask(__name__)
+
+start_time = datetime.now()
+current_time = start_time
+
+def get_elapsed_time():
+    current_time_function = datetime.now()
+    elapsed_time = current_time_function - start_time
+    return elapsed_time.total_seconds() / 60
 
 current_id = 11 # starts at 11
 
@@ -102,15 +112,19 @@ data = [
 
 @app.route('/')
 def start():
+    current_time = datetime.now()
     items = data[:3] # take first 3
 
-    return render_template('start.html', items=items) # home page
+    return render_template('start.html', items=items, current_time=current_time) # home page
 
 @app.route('/home')
 def welcome():
     items = data[:3] # take first 3
 
-    return render_template('welcome.html', items=items) # home page
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+
+    return render_template('welcome.html', items=items, current_time=current_time, elapsed_time=elapsed_time) # home page
 
 @app.route('/search', methods=['POST', 'GET'])
 def search():
@@ -163,7 +177,8 @@ View a particular kdrama
 @app.route('/learn/<int:id>', methods=['GET']) # GET request because just requesting info from server
 def learn(id):
     item = None
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -196,7 +211,7 @@ def learn(id):
     # print(item)
     # print(item)
 
-    return render_template('kdrama.html', item=item, itemActor=itemActor, itemGenre=itemGenre)
+    return render_template('kdrama.html', item=item, itemActor=itemActor, itemGenre=itemGenre, current_time=current_time, elapsed_time=elapsed_time)
 
 '''
 Access Types
@@ -206,7 +221,8 @@ Access Types
 def type(id):
     item = None
     number = 0
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -240,13 +256,14 @@ def type(id):
     # print(item)
     number = id
 
-    return render_template('types.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+    return render_template('types.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
 @app.route('/overview/<int:id>', methods=['GET']) # GET request because just requesting info from server
 def overview(id):
     item = None
     number = 0
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -280,13 +297,14 @@ def overview(id):
     # print(item)
     number = id
 
-    return render_template('overviews.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+    return render_template('overviews.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
 @app.route('/example/<int:id>', methods=['GET']) # GET request because just requesting info from server
 def example(id):
     item = None
     number = 0
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -320,13 +338,14 @@ def example(id):
     # print(item)
     number = id
 
-    return render_template('examples.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+    return render_template('examples.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
 @app.route('/mechanic/<int:id>', methods=['GET']) # GET request because just requesting info from server
 def mechanic(id):
     item = None
     number = 0
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -360,13 +379,14 @@ def mechanic(id):
     # print(item)
     number = id
 
-    return render_template('mechanics.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+    return render_template('mechanics.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
 @app.route('/recognition/<int:id>', methods=['GET']) # GET request because just requesting info from server
 def recognition(id):
     item = None
     number = 0
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -400,7 +420,7 @@ def recognition(id):
     # print(item)
     number = id
 
-    return render_template('recognitions.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+    return render_template('recognitions.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
 '''
 Access the add a new kdrama page OR add a new kdrama
