@@ -101,6 +101,12 @@ data = [
 ]
 
 @app.route('/')
+def start():
+    items = data[:3] # take first 3
+
+    return render_template('start.html', items=items) # home page
+
+@app.route('/home')
 def welcome():
     items = data[:3] # take first 3
 

@@ -152,3 +152,14 @@ body {
 .recog2 {
     margin-left: -465px;
 }
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+.start-button {
+    height: auto;
+    width: 80px;
+}
