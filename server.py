@@ -316,6 +316,46 @@ def example(id):
 
     return render_template('examples.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
 
+@app.route('/mechanic/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def mechanic(id):
+    item = None
+    number = 0
+
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('mechanics.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number)
+
 '''
 Access the add a new kdrama page OR add a new kdrama
 '''

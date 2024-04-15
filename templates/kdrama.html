@@ -65,13 +65,19 @@
 {% elif item.id == 2 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='Negative.png') }}" alt="Logo" class="type-size-3">
+        <a href="/mechanic/1">
+            <img src="{{ url_for('static', filename='Negative.png') }}" alt="Logo" class="type-size-3">
+        </a>
     </div>
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='Neutral.png') }}" alt="Logo" class="type-size-3 mechanic-adjust-2">
+        <a href="/mechanic/2">
+            <img src="{{ url_for('static', filename='Neutral.png') }}" alt="Logo" class="type-size-3 mechanic-adjust-2">
+        </a>
     </div>
     <div class="col-md-4">
-        <img src="{{ url_for('static', filename='Positive.png') }}" alt="Logo" class="type-size-3 mechanic-adjust">
+        <a href="/mechanic/3">
+            <img src="{{ url_for('static', filename='Positive.png') }}" alt="Logo" class="type-size-3 mechanic-adjust">
+        </a>
     </div>
 </div>
 {% else %}

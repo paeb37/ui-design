@@ -142,3 +142,7 @@ body {
 .mechanics-example {
     margin-left: 0px;
 }
+.mech-alt-size {
+    height: 170px;
+    width: auto;
+}
