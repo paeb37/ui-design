@@ -7,7 +7,7 @@
     function redirectToQuiz( state) {
         // Assuming 'id' is always '1' in this example.
         // Change the URL path to match your application's routing structure.
-        window.location.href = '/quiz1/' + state;
+        window.location.href = '/quiz2/' + state;
   }
 </script>
 
@@ -16,31 +16,29 @@
 <!-- Quiz 1 -->
 {% if state == 1 %}
     <h1>
-        You And Card Types Topic Quiz 1
+        You And Card Mechanics Topic Quiz
     </h1>
 
     <div>
         <span class="intro">
-            <i>Which of the following is true about the card shown below? Select your answer.
+            <i>The following is your hand in a game of blackjack and the count is positive (+). Should you hit or should you stand?
             </i>
         </span>
 
         <div class="row lesson-intro"> <!-- Image -->
             <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
             </div>
         </div>
 
         <div class="quiz-button-container">
-            <button class="quiz-button" onclick="redirectToQuiz(2)">Lower #</button>
-            <button class="quiz-button" onclick="redirectToQuiz(3)">No Effect</button> <!-- Correct -->
-            <button class="quiz-button" onclick="redirectToQuiz(2)">Has Effect</button>
+            <button class="quiz-button" onclick="redirectToQuiz(2)">Hit</button>
+            <button class="quiz-button" onclick="redirectToQuiz(3)">Stand</button> <!-- Correct -->
         </div>
     </div>
 {% elif state in [2, 3] %} <!-- The incorrect / correct section -->
-
     <h1>
-    {% if state == 3 %}
+    {% if state == 2 %}
         Correct!
     {% else %}
         Incorrect!
@@ -49,144 +47,23 @@
 
     <div>
         <span class="intro">
-            <i>Which of the following is true about the card shown below? Select your answer.
+            <i>The following is your hand in a game of blackjack and the count is positive (+). Should you hit or should you stand?
             </i>
         </span>
 
         <div class="row lesson-intro"> <!-- Image -->
             <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
             </div>
         </div>
 
         <div class="quiz-button-container">
-            <button class="quiz-button-red" onclick="redirectToQuiz(2)">Lower #</button>
-            <button class="quiz-button-green" onclick="redirectToQuiz(3)">No Effect</button> <!-- Correct -->
-            <button class="quiz-button-red" onclick="redirectToQuiz(2)">Has Effect</button>
+            <button class="quiz-button-green" onclick="redirectToQuiz(2)">Hit</button> <!-- Correct -->
+            <button class="quiz-button-red" onclick="redirectToQuiz(3)">Stand</button> 
         </div>
 
         <div class="row type-bottom"> <!-- the buttons towards the bottom -->
-            <div class="col-md-4"><a href="/quiz1/1" class="btn btn-primary mt-auto">Back</a></div>
-            <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
-            <div class="col-md-4"><a href="/quiz1/4" class="btn btn-primary mt-auto type-bottom-bottom">Next</a></div>
-        </div>
-    </div>
-
-{% elif state == 4 %} <!-- Second question -->
-    <h1>
-        You And Card Types Topic Quiz 2
-    </h1>
-
-    <div>
-        <span class="intro">
-            <i>
-                Which of the following is NOT true about the card shown below? Select your answer.                
-            </i>
-        </span>
-
-        <div class="row lesson-intro"> <!-- Image -->
-            <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_2.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
-            </div>
-        </div>
-
-        <div class="quiz-button-container">
-            <button class="quiz-button" onclick="redirectToQuiz(5)">Lower #</button>
-            <button class="quiz-button" onclick="redirectToQuiz(6)">No Effect</button> <!-- Correct -->
-            <button class="quiz-button" onclick="redirectToQuiz(5)">Has Effect</button>
-        </div>
-    </div>
-
-{% elif state in [5, 6] %} <!-- The incorrect / correct section -->
-    <h1>
-    {% if state == 6 %}
-        Correct!
-    {% else %}
-        Incorrect!
-    {% endif %}
-    </h1>
-
-    <div>
-        <span class="intro">
-            <i>
-                Which of the following is NOT true about the card shown below? Select your answer.                
-            </i>
-        </span>
-
-        <div class="row lesson-intro"> <!-- Image -->
-            <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_2.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
-            </div>
-        </div>
-
-        <div class="quiz-button-container">
-            <button class="quiz-button-red" onclick="redirectToQuiz(5)">Lower #</button>
-            <button class="quiz-button-green" onclick="redirectToQuiz(6)">No Effect</button> <!-- Correct -->
-            <button class="quiz-button-red" onclick="redirectToQuiz(5)">Has Effect</button>
-        </div>
-
-        <div class="row type-bottom"> <!-- the buttons towards the bottom -->
-            <div class="col-md-4"><a href="/quiz1/4" class="btn btn-primary mt-auto">Back</a></div>
-            <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
-            <div class="col-md-4"><a href="/quiz1/7" class="btn btn-primary mt-auto type-bottom-bottom">Next</a></div>
-        </div>
-    </div>
-
-{% elif state == 7 %} <!-- Third and last question -->
-    <h1>
-        You And Card Types Topic Quiz 3
-    </h1>
-
-    <div>
-        <span class="intro">
-            <i>
-                Which of the following is similar to the card shown below? Select your answer.
-            </i>
-        </span>
-
-        <div class="row lesson-intro"> <!-- Image -->
-            <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_3.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
-            </div>
-        </div>
-
-        <div class="quiz-button-container">
-            <button class="quiz-button" onclick="redirectToQuiz(8)">5 card</button> <!-- Correct -->
-            <button class="quiz-button" onclick="redirectToQuiz(9)">7 card</button>
-            <button class="quiz-button" onclick="redirectToQuiz(9)">King card</button>
-        </div>
-    </div>
-
-{% elif state in [8, 9] %} <!-- The incorrect / correct section -->
-    <h1>
-    {% if state == 8 %}
-        Correct!
-    {% else %}
-        Incorrect!
-    {% endif %}
-    </h1>
-
-    <div>
-        <span class="intro">
-            <i>
-                Which of the following is similar to the card shown below? Select your answer.
-            </i>
-        </span>
-
-        <div class="row lesson-intro"> <!-- Image -->
-            <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz1_3.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
-            </div>
-        </div>
-
-        <div class="quiz-button-container">
-            <button class="quiz-button-green" onclick="redirectToQuiz(8)">5 card</button> <!-- Correct -->
-            <button class="quiz-button-red" onclick="redirectToQuiz(9)">7 card</button>
-            <button class="quiz-button-red" onclick="redirectToQuiz(9)">King card</button>
-        </div>
-
-        <div class="row type-bottom"> <!-- the buttons towards the bottom -->
-            <div class="col-md-4"><a href="/quiz1/7" class="btn btn-primary mt-auto">Back</a></div>
+            <div class="col-md-4"><a href="/quiz2/1" class="btn btn-primary mt-auto">Back</a></div>
             <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
             <div class="col-md-4"><a href="/home" class="btn btn-primary mt-auto type-bottom-bottom">Home</a></div>
         </div>

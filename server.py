@@ -487,11 +487,25 @@ def edit_kdrama(id):
 
 # BRANDON'S CODE FOR LEARNING / QUIZ
 @app.route('/quiz1/<int:state>', methods=['GET'])  # GET request because just requesting info from server
-def quiz(state):  # Now function takes both 'id' and 'state' as arguments
+def quiz1(state):  # Now function takes both 'id' and 'state' as arguments
     quiz_state = state  # You can now use the 'state' variable inside your function
     # result = "" # only for the correct/incorrect part
 
     return render_template('quiz1.html', state=quiz_state)
+
+@app.route('/quiz2/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz2(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('quiz2.html', state=quiz_state)
+
+@app.route('/quiz3/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz3(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('quiz3.html', state=quiz_state)
 
 @app.route('/test')
 def test():
