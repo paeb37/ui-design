@@ -422,6 +422,7 @@ def recognition(id):
 
     return render_template('recognitions.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
 
+
 '''
 Access the add a new kdrama page OR add a new kdrama
 '''
@@ -482,6 +483,31 @@ def edit_kdrama(id):
     
     else:# For a GET request, render the edit form with the item data
         return render_template('edit_drama.html', item=item)
+
+
+# BRANDON'S CODE FOR LEARNING / QUIZ
+@app.route('/quiz/<int:id>/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz(id, state):  # Now function takes both 'id' and 'state' as arguments
+    number = id
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    result = "" # only for the correct/incorrect part
+
+    if number == 1: # Quiz 1
+        if quiz_state == 2: # Correct
+            result = "Correct"
+        elif quiz_state == 3:
+            result = "Incorrect"
+
+    return render_template('quiz.html', number=number, state=quiz_state, result=result)
+
+@app.route('/test')
+def test():
+    items = data[:3] # take first 3
+
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time()
+
+    return render_template('test.html') # home page
 
 if __name__ == '__main__':
    app.run(debug = True)
