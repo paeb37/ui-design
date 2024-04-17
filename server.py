@@ -1,37 +1,47 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify, redirect, url_for
+from datetime import datetime
+import time
 
 app = Flask(__name__)
+
+start_time = datetime.now()
+current_time = start_time
+
+def get_elapsed_time():
+    current_time_function = datetime.now()
+    elapsed_time = current_time_function - start_time
+    return elapsed_time.total_seconds() / 60
 
 current_id = 11 # starts at 11
 
 data = [
     {
         "id": 1,
-        "title": "Doctor Slump",
-        "image": "https://www.whats-on-netflix.com/wp-content/uploads/2023/04/jtbc-doctor-slump-season-1-reportedly-coming-to-netflix-in-2023.png",
+        "title": "Card Types",
+        "image": "https://nairobiwire.com/wp-content/uploads/2021/10/how-many-clubs-are-there-in-a-deck-of-cards.jpg",
         "summary": "Once rivals in school, two brilliant doctors reunite by chance - each facing life's worst slump and unexpectedly finding solace in each other.",
-        "actors": ["Park Shin Hye", "Park Hyung-Sik"],
-        "genres": ["Romance", "Comedy", "Crime"],
+        "actors": ["Shorter"],
+        "genres": ["Medium"],
     },
 
     {
         "id": 2,
-        "title": "Destined With You",
-        "image": "https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/08/17/Rowoon-and-Jo-Bo-ah-star-in-Netflixs-Destined-With-You-K-drama.jpg",
+        "title": "Card Mechanics",
+        "image": "https://i.pinimg.com/originals/ba/bb/00/babb0057cd7526fc7df4893245449fda.jpg",
         "summary": "A lawyer bound by a centuries-old curse becomes entangled with a civil servant who holds the key to his freedom.",
-        "actors": ["Jo Bo-ah", "Rowoon"],
-        "genres": ["Romance", "Crime"],
+        "actors": ["Shorter"],
+        "genres": ["Shorter"],
     },
 
     {
         "id": 3,
-        "title": "Happiness",
-        "image": "https://image.kpopmap.com/2021/10/Happiness-tvn-feature-image-2.jpg",
+        "title": "Card Recognition",
+        "image": "https://images.fineartamerica.com/images-medium-large-5/illustration-of-magnifying-glass-and-eye-representing-fanatic-studio--science-photo-library.jpg",
         "summary": "The residents of a high-rise apartment fight for their lives against a deadly infectious disease while Sae-bom and Yi-hyun try to find the person because of whom the virus spread.",
-        "actors": ["Han Hyo-joo", "Park Hyung-sik"],
-        "genres": ["Crime", "Thriller"],
+        "actors": ["Longer"],
+        "genres": ["Medium"],
     },
 
     {
@@ -96,15 +106,41 @@ data = [
         "actors": ["Jang Dong-yoon", "Nana"],
         "genres": ["Romance", "Crime"],
     },
-
-
 ]
 
+# keep track of the user's score (out of five)
+score = 0
+attempted = dict() # keep track of the problems the user has attempted
+# and whether they got it right
+# if they got it right and they retry, then deduct 1 from score
+# if they got it wrong and retry, do nothing
+
+# key value pair:
+# 1: True # for problem 1, either True for success or False for incorrect
+
 @app.route('/')
-def welcome():
+def start():
+    current_time = datetime.now()
     items = data[:3] # take first 3
 
-    return render_template('welcome.html', items=items) # home page
+    return render_template('start.html', items=items, current_time=current_time) # home page
+
+@app.route('/home', defaults={'reset': None})
+@app.route('/home/<reset>') # reset in case they go back home after finishing the test
+def welcome(reset):
+    global score
+    global attempted
+
+    if reset:
+        score = 0
+        attempted = dict()
+
+    items = data[:3] # take first 3
+
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+
+    return render_template('welcome.html', items=items, current_time=current_time, elapsed_time=elapsed_time) # home page
 
 @app.route('/search', methods=['POST', 'GET'])
 def search():
@@ -154,10 +190,11 @@ def search():
 '''
 View a particular kdrama
 '''
-@app.route('/view/<int:id>', methods=['GET']) # GET request because just requesting info from server
-def view(id):
+@app.route('/learn/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def learn(id):
     item = None
-
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
     print(data)
 
     for drama in data:
@@ -190,7 +227,217 @@ def view(id):
     # print(item)
     # print(item)
 
-    return render_template('kdrama.html', item=item, itemActor=itemActor, itemGenre=itemGenre)
+    return render_template('kdrama.html', item=item, itemActor=itemActor, itemGenre=itemGenre, current_time=current_time, elapsed_time=elapsed_time)
+
+'''
+Access Types
+'''
+
+@app.route('/type/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def type(id):
+    item = None
+    number = 0
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('types.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
+
+@app.route('/overview/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def overview(id):
+    item = None
+    number = 0
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('overviews.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
+
+@app.route('/example/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def example(id):
+    item = None
+    number = 0
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('examples.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
+
+@app.route('/mechanic/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def mechanic(id):
+    item = None
+    number = 0
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('mechanics.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
+
+@app.route('/recognition/<int:id>', methods=['GET']) # GET request because just requesting info from server
+def recognition(id):
+    item = None
+    number = 0
+    current_time = datetime.now()
+    elapsed_time = get_elapsed_time();
+    print(data)
+
+    for drama in data:
+        if drama['id'] == int(id): # str by default
+            item = drama
+            break
+    
+    # matching item by actor
+    itemActor = None
+    itemGenre = None
+
+    if item: # item exists
+        actors = item['actors']
+        genres = item['genres']
+
+        for actor in actors: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id):
+                    for actor2 in drama['actors']: # (BUT CANNOT BE THE SAME ITEM)
+                        if actor.lower() == actor2.lower():
+                            itemActor = drama
+                            break
+
+        for genre in genres: # for each actor in this particular kdrama
+            for drama in data: # check if existing match in data
+                if drama['id'] != int(id) and genre in drama['genres']: # (BUT CANNOT BE THE SAME ITEM)
+                    itemGenre = drama
+                    break
+
+    # print(item)
+    # print(item)
+    number = id
+
+    return render_template('recognitions.html', item=item, itemActor=itemActor, itemGenre=itemGenre, number=number, current_time=current_time, elapsed_time=elapsed_time)
+
 
 '''
 Access the add a new kdrama page OR add a new kdrama
@@ -252,6 +499,70 @@ def edit_kdrama(id):
     
     else:# For a GET request, render the edit form with the item data
         return render_template('edit_drama.html', item=item)
+
+
+# BRANDON'S CODE FOR LEARNING / QUIZ
+@app.route('/quiz1/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz1(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('quiz1.html', state=quiz_state)
+
+@app.route('/quiz2/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz2(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('quiz2.html', state=quiz_state)
+
+@app.route('/quiz3/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def quiz3(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('quiz3.html', state=quiz_state)
+
+@app.route('/test/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def test(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
+
+    return render_template('test.html', state=quiz_state)
+
+@app.route('/submit/<int:problem_number>', methods=['POST'])
+def submit(problem_number):
+    global score
+
+    number = request.form['number']
+    print(number)
+
+    correct_ans = None
+    correct = False
+
+    problem_number = int(problem_number)
+
+    if problem_number in attempted: # if they tried this problem already
+        if attempted[problem_number]: # only if they got it correct, then deduct the point
+            score -= 1
+    
+    if problem_number == 1:
+        correct_ans = 0
+    elif problem_number == 2:
+        correct_ans = 0
+    elif problem_number == 3:
+        correct_ans = 3
+    elif problem_number == 4:
+        correct_ans = -5
+    elif problem_number == 5:
+        correct_ans = -1
+    
+    if int(number) == int(correct_ans): # show at the end
+        score += 1
+        correct = True
+    
+    # return redirect(url_for('index'))  # Redirect back to the form page, or wherever you need.
+    return render_template('test_result.html', problem_number=problem_number, your_ans=number, correct_ans=correct_ans, correct=correct, score=score)
 
 if __name__ == '__main__':
    app.run(debug = True)

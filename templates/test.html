@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function redirectToQuiz(state) {
+        // Assuming 'id' is always '1' in this example.
+        // Change the URL path to match your application's routing structure.
+        window.location.href = '/test/' + state;
+  }
+</script>
+
+<br>
+
+<h1>
+    You And Card Counting Test #{{state}}
+</h1>
+
+<!-- For some reason test{{state}}.mkv does not work? -->
+{% if state == 1%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test1.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 2%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test2.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 3%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test3.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 4%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test4.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 5 %}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test5.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% endif %}
+
+<div class="row button-container"> <!-- Image -->
+    <form action="/submit/{{state}}" method="post">
+        <input type="number" class="input-text" name="number" placeholder="Type in your answer (count)" required />
+        <button class="submit-button" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

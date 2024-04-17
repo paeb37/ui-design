@@ -16,7 +16,7 @@ function highlight(text, query) {
 
 $(document).ready(function() {
 
-    console.log("Test " + iteration); // for testing purposes
+    //console.log("Test " + iteration); // for testing purposes
 
     $('#search-form').on('submit', function(event) {
         const query = $('##searchInput').val().trim();

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function redirectToQuiz( state) {
+        // Assuming 'id' is always '1' in this example.
+        // Change the URL path to match your application's routing structure.
+        window.location.href = '/quiz3/' + state;
+  }
+</script>
+
+<br>
+
+<!-- Quiz 1 -->
+{% if state == 1 %}
+    <h1>
+        You And Card Recognition Topic Quiz
+    </h1>
+
+    <div>
+        <span class="intro">
+            <i>With a mental count of 0 at the start of a new blackjack game and the following counts are drawn. Is the count positive (+) or negative (-)?
+            </i>
+        </span>
+
+        <div class="row lesson-intro"> <!-- Image -->
+            <div class="col-md-12 text-center">
+                <img src="{{ url_for('static', filename='quiz3_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+            </div>
+        </div>
+
+        <div class="quiz-button-container">
+            <button class="quiz-button" onclick="redirectToQuiz(2)">Positive</button>
+            <button class="quiz-button" onclick="redirectToQuiz(3)">Negative</button>
+        </div>
+    </div>
+    
+{% elif state in [2, 3] %} <!-- The incorrect / correct section -->
+    <h1>
+    {% if state == 2 %}
+        Correct!
+    {% else %}
+        Incorrect!
+    {% endif %}
+    </h1>
+
+    <div>
+        <span class="intro">
+            <i>With a mental count of 0 at the start of a new blackjack game and the following counts are drawn. Is the count positive (+) or negative (-)?
+            </i>
+        </span>
+
+        <div class="row lesson-intro"> <!-- Image -->
+            <div class="col-md-12 text-center">
+                <img src="{{ url_for('static', filename='quiz3_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+            </div>
+        </div>
+
+        <div class="quiz-button-container">
+            <button class="quiz-button-green" onclick="redirectToQuiz(2)">Positive</button>
+            <button class="quiz-button-red" onclick="redirectToQuiz(3)">Negative</button>
+        </div>
+
+        <div class="row type-bottom"> <!-- the buttons towards the bottom -->
+            <div class="col-md-4"><a href="/quiz3/1" class="btn btn-primary mt-auto">Back</a></div>
+            <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
+            <div class="col-md-4"><a href="/home" class="btn btn-primary mt-auto type-bottom-bottom">Home</a></div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

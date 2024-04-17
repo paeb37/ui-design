@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- To show a particular kdrama -->
+<script>
+    function goToEditPage(id) {
+        window.location.href = `/edit/${id}`;
+    }
+    var current_time = "{{ current_time }}";
+    var elapsed_time = parseFloat("{{ elapsed_time }}").toFixed(2);
+    console.log("Current time:", current_time);
+    console.log("Elapsed time:", elapsed_time, "minutes");
+</script>
+
+<br>
+<!-- Content for the first column -->
+{% if number == 1 %}
+<h1>
+    You and Negative Count (-)
+</h1>
+{% elif number == 2 %}
+<h1>
+    You and Neutral Count (0)
+</h1>
+{% else %}
+<h1>
+    You and Positive Count (+)
+</h1>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div>
+    <span class="intro">
+        <i>Negative counts indicates the following cards are more likely to start being drawn as the deck has more of them.</i>
+    </span>
+</div>
+{% elif number == 2 %}
+<div>
+    <span class="intro">
+        <i>Neutral counts indicates the deck is balanced and that any of the following cards are equally as likely to be drawn.</i>
+    </span>
+</div>
+{% else %}
+<div>
+    <span class="intro">
+        <i>Positive counts indicates the following cards are more likely to start being drawn as the deck has more of them.</i>
+    </span>
+</div>
+{% endif %}
+
+{% if number == 1 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='2to6.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+    </div>
+</div>
+{% elif number == 2 %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='All.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+    </div>
+</div>
+{% else %}
+<div class="row lesson-intro"> <!-- Top row -->
+    <div class="col-md-12">
+        <img src="{{ url_for('static', filename='10toA.png') }}" alt="Logo" class="mech-alt-size">
+    </div>
+</div>
+{% endif %}
+
+<br>
+{% if number == 1 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/2" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% elif number == 2 %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/2" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% else %}
+<div class="row type-bottom"> <!-- Top row -->
+    <div class="col-md-4"><a href="/learn/2" class="btn btn-primary mt-auto">Back</a></div>
+</div>
+{% endif %}
+
+{% endblock %}
