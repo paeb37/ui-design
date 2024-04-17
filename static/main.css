@@ -207,3 +207,68 @@ body {
 .quiz-button:hover {
     background-color: #3B4B5A; /* Adjust hover color as needed */
 }
+
+/* for test page */
+.button-container {
+    display: flex; /* Aligns items in a row */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc; /* Light gray border */
+    width: max-content; /* Fits container width to its content */
+    margin: 10px; /* Adds some space around the container */
+    text-align: center;
+}
+
+.input-text {
+    padding: 10px;
+    margin-right: 10px; /* Adds space between input and button */
+    font-size: 16px; /* Sets font size for the text inside the input */
+    border: 1px solid #ccc; /* Light gray border */
+    width: 250px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #333; /* Dark gray background */
+    color: white; /* White text color */
+    border: none; /* Removes border */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 16px; /* Sets font size for the text inside the button */
+}
+
+.submit-button:hover {
+    background-color: #555; /* Darker gray background on hover */
+}
+
+/* test results page */
+.feedback-container {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+
+  .user-answer, .correct-answer {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .result {
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .correct {
+    background-color: #4CAF50; /* Green for correct */
+  }
+
+  .incorrect {
+    background-color: #F44336; /* Red for incorrect */
+  }
+
+  .neutral {
+    background-color: grey; /* Red for incorrect */
+  }

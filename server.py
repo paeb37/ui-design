@@ -106,9 +106,17 @@ data = [
         "actors": ["Jang Dong-yoon", "Nana"],
         "genres": ["Romance", "Crime"],
     },
-
-
 ]
+
+# keep track of the user's score (out of five)
+score = 0
+attempted = dict() # keep track of the problems the user has attempted
+# and whether they got it right
+# if they got it right and they retry, then deduct 1 from score
+# if they got it wrong and retry, do nothing
+
+# key value pair:
+# 1: True # for problem 1, either True for success or False for incorrect
 
 @app.route('/')
 def start():
@@ -117,8 +125,16 @@ def start():
 
     return render_template('start.html', items=items, current_time=current_time) # home page
 
-@app.route('/home')
-def welcome():
+@app.route('/home', defaults={'reset': None})
+@app.route('/home/<reset>') # reset in case they go back home after finishing the test
+def welcome(reset):
+    global score
+    global attempted
+
+    if reset:
+        score = 0
+        attempted = dict()
+
     items = data[:3] # take first 3
 
     current_time = datetime.now()
@@ -507,14 +523,46 @@ def quiz3(state):  # Now function takes both 'id' and 'state' as arguments
 
     return render_template('quiz3.html', state=quiz_state)
 
-@app.route('/test')
-def test():
-    items = data[:3] # take first 3
+@app.route('/test/<int:state>', methods=['GET'])  # GET request because just requesting info from server
+def test(state):  # Now function takes both 'id' and 'state' as arguments
+    quiz_state = state  # You can now use the 'state' variable inside your function
+    # result = "" # only for the correct/incorrect part
 
-    current_time = datetime.now()
-    elapsed_time = get_elapsed_time()
+    return render_template('test.html', state=quiz_state)
 
-    return render_template('test.html') # home page
+@app.route('/submit/<int:problem_number>', methods=['POST'])
+def submit(problem_number):
+    global score
+
+    number = request.form['number']
+    print(number)
+
+    correct_ans = None
+    correct = False
+
+    problem_number = int(problem_number)
+
+    if problem_number in attempted: # if they tried this problem already
+        if attempted[problem_number]: # only if they got it correct, then deduct the point
+            score -= 1
+    
+    if problem_number == 1:
+        correct_ans = 0
+    elif problem_number == 2:
+        correct_ans = 0
+    elif problem_number == 3:
+        correct_ans = 3
+    elif problem_number == 4:
+        correct_ans = -5
+    elif problem_number == 5:
+        correct_ans = -1
+    
+    if int(number) == int(correct_ans): # show at the end
+        score += 1
+        correct = True
+    
+    # return redirect(url_for('index'))  # Redirect back to the form page, or wherever you need.
+    return render_template('test_result.html', problem_number=problem_number, your_ans=number, correct_ans=correct_ans, correct=correct, score=score)
 
 if __name__ == '__main__':
    app.run(debug = True)

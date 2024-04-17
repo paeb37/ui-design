@@ -2,51 +2,84 @@
 
 {% block content %}
 
+<!-- To show a particular kdrama -->
 <script>
+    function redirectToQuiz(state) {
+        // Assuming 'id' is always '1' in this example.
+        // Change the URL path to match your application's routing structure.
+        window.location.href = '/test/' + state;
+  }
 </script>
 
 <br>
 
-<!-- Test Page for Card Couting -->
-
 <h1>
-    You and the Cards
+    You And Card Counting Test #{{state}}
 </h1>
 
-<br>
+<!-- For some reason test{{state}}.mkv does not work? -->
+{% if state == 1%}
 
-<div>
-    <span class="intro"><i>This site serves to introduce you the basics of card counting as well as provide some practice to help solidify the skill.</i></span>
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test1.mkv') }}"
+                    />
+            </video>
+    </div>
 </div>
 
-<br>
+{% elif state == 2%}
 
-<div class="row">
-    {% for item in items %}
-        <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
-            <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
-                <!-- Wrap the image in an <a> tag to make it clickable -->
-                <a href="/learn/{{ item.id }}">
-                    <img src="{{ item.image }}" class="card-img-top image-modified" alt="{{ item.title }}">
-                </a>
-                <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <!-- Genres -->
-                    <p class="card-text"><strong>Lesson Length:</strong> {{ item.genres|join(', ') }}</p>
-                    <!-- Actors -->
-                    <p class="card-text"><strong>Quiz Length:</strong> {{ item.actors|join(', ') }}</p>
-                    <a href="/learn/{{item.id}}" class="btn btn-primary mt-auto">Learn Lesson</a> <!-- mt-auto pushes the button down -->
-                </div>
-            </div>
-        </div>
-    {% endfor %}
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test2.mkv') }}"
+                    />
+            </video>
+    </div>
 </div>
 
-<div>
-    <span class="intro centering"><i>Select a lesson</i></span>
+{% elif state == 3%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test3.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 4%}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test4.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% elif state == 5 %}
+
+<div class="row lesson-intro"> <!-- Image -->
+    <div class="col-md-12 text-center">
+        <video width="500px" height="400px" controls="controls">
+            <source src="{{ url_for('static', filename='test5.mkv') }}"
+                    />
+            </video>
+    </div>
+</div>
+
+{% endif %}
+
+<div class="row button-container"> <!-- Image -->
+    <form action="/submit/{{state}}" method="post">
+        <input type="number" class="input-text" name="number" placeholder="Type in your answer (count)" required />
+        <button class="submit-button" type="submit">Submit</button>
+    </form>
 </div>
 
 {% endblock %}
-
-
-
