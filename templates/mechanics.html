@@ -53,19 +53,19 @@
 {% if number == 1 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='2to6.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+        <img src="{{ url_for('static', filename='2to6.png') }}" alt="Logo" class="card-border-minus-1 mech-bigger">
     </div>
 </div>
 {% elif number == 2 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='All.png') }}" alt="Logo" class="mech-alt-size type-overview mechanics-example">
+        <img src="{{ url_for('static', filename='All.png') }}" alt="Logo" class="mech-overview card-border-minus-1 mech-bigger-2">
     </div>
 </div>
 {% else %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='10toA.png') }}" alt="Logo" class="mech-alt-size">
+        <img src="{{ url_for('static', filename='10toA.png') }}" alt="Logo" class="card-border-minus-1 mech-bigger-3">
     </div>
 </div>
 {% endif %}

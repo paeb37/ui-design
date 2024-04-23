@@ -16,7 +16,7 @@
 <h1>
     You And Your Test Report #{{problem_number}}
 </h1>
-
+<br>
 <div class="feedback-container">
     <div class="user-answer">
       Your answer: <span id="userAnswer">{{your_ans}}</span> <!-- Placeholder for user answer -->
@@ -35,13 +35,10 @@
       Incorrect! Good try.
     </div>
     {% endif %}
-
-    <br> 
-
-    <div id="result" class="result neutral">
+    <div id="result" class="result neutral cumulative">
         Cumulative Score: {{score}}/5
     </div>
-
+    <br>
 </div>
 
 <div class="row type-bottom"> <!-- Top row -->
@@ -49,9 +46,9 @@
     <div class="col-md-4"><span class="type-bottom-text intro"><i> </i></span></div>
 
     {% if problem_number == 5 %}
-    <div class="col-md-4"><a href="/home/reset" class="btn btn-primary mt-auto type-bottom-bottom">Home</a></div>
+    <div class="col-md-4"><a href="/home/reset" class="btn btn-primary mt-auto type-bottom-bottom Home-Test-Space">Home</a></div>
     {% else %}
-    <div class="col-md-4"><a href="/test/{{problem_number + 1}}" class="btn btn-primary mt-auto type-bottom-bottom">Next Test</a></div>
+    <div class="col-md-4"><a href="/test/{{problem_number + 1}}" class="btn btn-primary mt-auto type-bottom-bottom Next-Test-Space">Next Test</a></div>
     {% endif %}
 </div>
 

@@ -94,8 +94,17 @@ body {
     top: 11px;
     color: grey;
 }
+.type-bottom-text-1 {
+    margin-left: 115px;
+    position: relative;
+    top: 11px;
+    color: grey;
+}
 .type-bottom-bottom {
     margin-left: 180px;
+}
+.type-bottom-bottom-1 {
+    margin-left: 260px;
 }
 .lesson-intro {
     margin-top: 20px;
@@ -127,6 +136,18 @@ body {
 .type-overview {
     margin-left: -55px;
 }
+
+.type-overview-1 {
+    margin-left: -15px;
+}
+
+.type-overview-2 {
+    margin-left: -55px;
+}
+
+.mech-overview {
+    margin-left: 0px;
+}
 .type-overview-alt-size {
     height: 270px;
     width: auto;
@@ -147,7 +168,7 @@ body {
     width: auto;
 }
 .recog {
-    margin-left: -300px;
+    margin-left: -297px;
 }
 .recog2 {
     margin-left: -465px;
@@ -166,6 +187,10 @@ body {
 
 /* brandon additional css */
 
+.quiz-title-space {
+    margin-bottom: 35px;
+}
+
 .quiz-button-container {
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -174,14 +199,24 @@ body {
     margin: 4%;
 }
 
+.quiz-button-container-1 {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    gap: 25px; /* Adjust the gap between buttons as needed */
+    margin: 4%;
+    margin-left: 5px;
+}
+
 .quiz-button {
     border: none;
-    background-color: #4E5D6C; /* Adjust background color as needed */
+    background-color: #007bff; /* Adjust background color as needed */
     color: white; /* Text color */
     padding: 10px 20px; /* Adjust padding as needed */
     font-size: 16px; /* Adjust font size as needed */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 7px;
 }
 
 .quiz-button-green {
@@ -192,6 +227,7 @@ body {
     font-size: 16px; /* Adjust font size as needed */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 7px;
 }
 
 .quiz-button-red {
@@ -202,6 +238,7 @@ body {
     font-size: 16px; /* Adjust font size as needed */
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 7px;
 }
 
 .quiz-button:hover {
@@ -214,7 +251,7 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     padding: 10px;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f8f9fa; /* Light gray background */
     border: 1px solid #ccc; /* Light gray border */
     width: max-content; /* Fits container width to its content */
     margin: 10px; /* Adds some space around the container */
@@ -229,9 +266,41 @@ body {
     width: 250px;
 }
 
+.card-border {
+    border: 5px solid #007bff; /* Border properties */
+    border-radius: 10px; /* Rounded corner radius */
+}
+
+.card-border-plus {
+    border: 7px solid #007bff; /* Border properties */
+    border-radius: 20px; /* Rounded corner radius */
+}
+
+.card-border-minus {
+    border-radius: 20px; /* Rounded corner radius */
+}
+
+.card-border-minus-1 {
+    border-radius: 20px; /* Rounded corner radius */
+    border: 1px solid black;
+}
+
+.mech-bigger {
+    width: 500px;
+    height: auto;
+}
+.mech-bigger-2 {
+    width: 1100px;
+    height: auto;
+}
+
+.mech-bigger-3 {
+    width: 600px;
+    height: auto;
+}
 .submit-button {
     padding: 10px 20px;
-    background-color: #333; /* Dark gray background */
+    background-color: #007bff; /* Dark gray background */
     color: white; /* White text color */
     border: none; /* Removes border */
     cursor: pointer; /* Changes cursor to pointer on hover */
@@ -246,29 +315,62 @@ body {
 .feedback-container {
     font-family: Arial, sans-serif;
     margin-top: 20px;
-  }
+}
 
-  .user-answer, .correct-answer {
+.user-answer, .correct-answer {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 10px;
-  }
+}
 
-  .result {
+.result {
     padding: 10px;
     color: white;
     font-weight: bold;
-  }
+}
 
-  .correct {
+.correct {
     background-color: #4CAF50; /* Green for correct */
-  }
+}
 
-  .incorrect {
+.incorrect {
     background-color: #F44336; /* Red for incorrect */
-  }
+}
 
-  .neutral {
+.neutral {
     background-color: grey; /* Red for incorrect */
-  }
+}
+
+.recog-10 {
+    width: 103px;
+    height: auto;
+    margin-top: 10px;
+}
+.recog-face {
+    margin-left: -250px;
+}
+.recog-A {
+    width: 128px;
+    height: auto;
+    margin-top: 5px;
+    margin-left: -280px;
+}
+.video-box {
+    margin-top: 20px;
+}
+.submit-shift {
+    margin-left: 375px;
+}
+.box-grey {
+    color: #f8f9fa;
+}
+.Next-Test-Space {
+    margin-left: 259px;
+}
+.cumulative {
+    margin-top: 10px;
+}
+.Home-Test-Space {
+    margin-left: 282px;
+}
