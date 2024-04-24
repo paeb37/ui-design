@@ -84,9 +84,17 @@
 <br>
 <div class="row button-container submit-shift card-border-minus box-grey"> <!-- Image -->
     <form action="/submit/{{state}}" method="post">
-        <input type="number" class="input-text card-border-minus" name="number" placeholder="Type in your answer (count)" required />
+        <input type="number" class="input-text card-border-minus" name="number" 
+        placeholder="Type in your answer (count)" 
+        required 
+        min="-10"         
+        max="10"       
+        step="1"        
+        title="Please enter a whole number between -10 and 10." />
         <button class="submit-button card-border-minus" type="submit">Submit</button>
     </form>
 </div>
+
+
 
 {% endblock %}

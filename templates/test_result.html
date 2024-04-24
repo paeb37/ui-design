@@ -19,26 +19,52 @@
 <br>
 <div class="feedback-container">
     <div class="user-answer">
-      Your answer: <span id="userAnswer">{{your_ans}}</span> <!-- Placeholder for user answer -->
+      Your answer: <span id="userAnswer" style="font-weight: bold;">{{your_ans}}</span> <!-- Placeholder for user answer -->
     </div>
     <div class="correct-answer">
-      Correct answer: <span id="correctAnswer">{{correct_ans}}</span> <!-- Placeholder for correct answer -->
+      Correct answer: <span id="correctAnswer" style="font-weight: bold;">{{correct_ans}}</span> <!-- Placeholder for correct answer -->
     </div>
     {% if correct %}
     <div id="result" class="result correct">
       <!-- Change class to 'incorrect' if the user is wrong -->
       Correct!
     </div>
+
+    <div id="result" class="result neutral">
+      Cumulative Score: {{score}}/5
+    </div>
+
+    <br> 
+
+    <!-- Now print a congratulatory message -->
+    <h4>
+    Congratulations on finishing question {{problem_number}} of the test, feel free to retry or continue!
+    </h4>
+
+    <br> 
+
     {% else %}
+
     <div id="result" class="result incorrect">
         <!-- Change class to 'incorrect' if the user is wrong -->
-      Incorrect! Good try.
+      Incorrect!
     </div>
-    {% endif %}
+
     <div id="result" class="result neutral cumulative">
-        Cumulative Score: {{score}}/5
+      Cumulative Score: {{score}}/5
     </div>
-    <br>
+
+    <br> 
+
+    <!-- Now print a congratulatory message -->
+    <h4>
+    Good try. Feel free to retry this question on the test, or continue.
+    </h4>
+
+    <br> 
+
+    {% endif %}
+
 </div>
 
 <div class="row type-bottom"> <!-- Top row -->
