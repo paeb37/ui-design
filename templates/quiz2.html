@@ -15,10 +15,11 @@
 
 <!-- Quiz 1 -->
 {% if state == 1 %}
+<div class="quiz-title-space">
     <h1>
         You And Card Mechanics Topic Quiz
     </h1>
-
+</div>
     <div>
         <span class="intro">
             <i>The following is your hand in a game of blackjack and the count is positive (+). Should you hit or should you stand?
@@ -27,16 +28,17 @@
 
         <div class="row lesson-intro"> <!-- Image -->
             <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview card-border-minus-1">
             </div>
         </div>
 
-        <div class="quiz-button-container">
+        <div class="quiz-button-container-1">
             <button class="quiz-button" onclick="redirectToQuiz(2)">Hit</button>
             <button class="quiz-button" onclick="redirectToQuiz(3)">Stand</button> <!-- Correct -->
         </div>
     </div>
 {% elif state in [2, 3] %} <!-- The incorrect / correct section -->
+<div class="quiz-title-space">
     <h1>
     {% if state == 2 %}
         Correct!
@@ -44,7 +46,7 @@
         Incorrect!
     {% endif %}
     </h1>
-
+</div>
     <div>
         <span class="intro">
             <i>The following is your hand in a game of blackjack and the count is positive (+). Should you hit or should you stand?
@@ -53,11 +55,11 @@
 
         <div class="row lesson-intro"> <!-- Image -->
             <div class="col-md-12 text-center">
-                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+                <img src="{{ url_for('static', filename='quiz2_1.png') }}" alt="Logo" class="type-overview-alt-size type-overview card-border-minus-1">
             </div>
         </div>
 
-        <div class="quiz-button-container">
+        <div class="quiz-button-container-1">
             <button class="quiz-button-green" onclick="redirectToQuiz(2)">Hit</button> <!-- Correct -->
             <button class="quiz-button-red" onclick="redirectToQuiz(3)">Stand</button> 
         </div>

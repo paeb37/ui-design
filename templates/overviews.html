@@ -57,19 +57,19 @@
 {% if number == 1 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='TypeOverview.png') }}" alt="Logo" class="type-overview-alt-size type-overview">
+        <img src="{{ url_for('static', filename='TypeOverview.png') }}" alt="Logo" class="type-overview-alt-size type-overview card-border-minus">
     </div>
 </div>
 {% elif number == 2 %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='MechanicOverview.png') }}" alt="Logo" class="mechanic-overview-alt-size">
+        <img src="{{ url_for('static', filename='MechanicOverview.png') }}" alt="Logo" class="mechanic-overview-alt-size card-border-minus">
     </div>
 </div>
 {% else %}
 <div class="row lesson-intro"> <!-- Top row -->
     <div class="col-md-12">
-        <img src="{{ url_for('static', filename='RecognitionOverview.png') }}" alt="Logo" class="recognition-overview-alt-size">
+        <img src="{{ url_for('static', filename='RecognitionOverview.png') }}" alt="Logo" class="recognition-overview-alt-size card-border-minus">
     </div>
 </div>
 {% endif %}

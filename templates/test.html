@@ -16,13 +16,20 @@
 <h1>
     You And Card Counting Test #{{state}}
 </h1>
+<br>
+<div>
+    <span class="intro">
+        <i>Play the video to see a series of card draws. When the video ends, submit your answer for the count you calculated.</i>
+    </span>
+</div>
+
 
 <!-- For some reason test{{state}}.mkv does not work? -->
 {% if state == 1%}
 
 <div class="row lesson-intro"> <!-- Image -->
     <div class="col-md-12 text-center">
-        <video width="500px" height="400px" controls="controls">
+        <video width="500px" height="300px" controls="controls" class="card-border-plus">
             <source src="{{ url_for('static', filename='test1.mkv') }}"
                     />
             </video>
@@ -33,7 +40,7 @@
 
 <div class="row lesson-intro"> <!-- Image -->
     <div class="col-md-12 text-center">
-        <video width="500px" height="400px" controls="controls">
+        <video width="500px" height="300px" controls="controls" class="card-border-plus">
             <source src="{{ url_for('static', filename='test2.mkv') }}"
                     />
             </video>
@@ -44,7 +51,7 @@
 
 <div class="row lesson-intro"> <!-- Image -->
     <div class="col-md-12 text-center">
-        <video width="500px" height="400px" controls="controls">
+        <video width="500px" height="300px" controls="controls" class="card-border-plus">
             <source src="{{ url_for('static', filename='test3.mkv') }}"
                     />
             </video>
@@ -55,7 +62,7 @@
 
 <div class="row lesson-intro"> <!-- Image -->
     <div class="col-md-12 text-center">
-        <video width="500px" height="400px" controls="controls">
+        <video width="500px" height="300px" controls="controls" class="card-border-plus">
             <source src="{{ url_for('static', filename='test4.mkv') }}"
                     />
             </video>
@@ -66,7 +73,7 @@
 
 <div class="row lesson-intro"> <!-- Image -->
     <div class="col-md-12 text-center">
-        <video width="500px" height="400px" controls="controls">
+        <video width="500px" height="300px" controls="controls" class="card-border-plus">
             <source src="{{ url_for('static', filename='test5.mkv') }}"
                     />
             </video>
@@ -74,17 +81,17 @@
 </div>
 
 {% endif %}
-
-<div class="row button-container"> <!-- Image -->
+<br>
+<div class="row button-container submit-shift card-border-minus box-grey"> <!-- Image -->
     <form action="/submit/{{state}}" method="post">
-        <input type="number" class="input-text" name="number" 
+        <input type="number" class="input-text card-border-minus" name="number" 
         placeholder="Type in your answer (count)" 
         required 
         min="-10"         
         max="10"       
         step="1"        
         title="Please enter a whole number between -10 and 10." />
-        <button class="submit-button" type="submit">Submit</button>
+        <button class="submit-button card-border-minus" type="submit">Submit</button>
     </form>
 </div>
 

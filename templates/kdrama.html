@@ -45,61 +45,141 @@
 
 {% if item.id == 1 %}
 <div class="row lesson-intro"> <!-- Top row -->
-    <div class="col-md-3">
-        <a href="/type/1">
-            <img src="{{ url_for('static', filename='1to6.png') }}" alt="Logo" class="type-size">
-        </a>
+    <div class="col-md-3 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-3" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/type/1">
+                <img src="{{ url_for('static', filename='1to6.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Lower Numeral Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 5</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="/type/2">
-            <img src="{{ url_for('static', filename='7to9.png') }}" alt="Logo" class="type-size type-space1">
-        </a>
+    <div class="col-md-3 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-3" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/type/2">
+                <img src="{{ url_for('static', filename='7to9.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Higher Numeral Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 3</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="/type/3">
-            <img src="{{ url_for('static', filename='jtok.png') }}" alt="Logo" class="type-size type-space2">
-        </a>
+    <div class="col-md-3 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-3" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/type/3">
+                <img src="{{ url_for('static', filename='jtok.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Face Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 3</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <a href="/type/4">
-            <img src="{{ url_for('static', filename='a.png') }}" alt="Logo" class="type-size type-space3">
-        </a>
+    <div class="col-md-3 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-3" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/type/4">
+                <img src="{{ url_for('static', filename='a.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Ace Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 1</p>
+                
+            </div>
+        </div>
     </div>
 </div>
 {% elif item.id == 2 %}
 <div class="row lesson-intro"> <!-- Top row -->
-    <div class="col-md-4">
-        <a href="/mechanic/1">
-            <img src="{{ url_for('static', filename='Negative.png') }}" alt="Logo" class="type-size-3">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/mechanic/1">
+                <img src="{{ url_for('static', filename='Negative.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Negative Count</h5>
+                <p class="card-text"><strong># of Expected Cards:</strong> 5</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <a href="/mechanic/2">
-            <img src="{{ url_for('static', filename='Neutral.png') }}" alt="Logo" class="type-size-3 mechanic-adjust-2">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/mechanic/2">
+                <img src="{{ url_for('static', filename='Neutral.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Neutral Count</h5>
+                <p class="card-text"><strong># of Expected Cards:</strong> 13</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <a href="/mechanic/3">
-            <img src="{{ url_for('static', filename='Positive.png') }}" alt="Logo" class="type-size-3 mechanic-adjust">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/mechanic/3">
+                <img src="{{ url_for('static', filename='Positive.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Positive Count</h5>
+                <p class="card-text"><strong># of Expected Cards:</strong> 5</p>
+                
+            </div>
+        </div>
     </div>
 </div>
 {% else %}
 <div class="row lesson-intro"> <!-- Top row -->
-    <div class="col-md-4">
-        <a href="/recognition/1">
-            <img src="{{ url_for('static', filename='RedGroup.png') }}" alt="Logo" class="type-size-3">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/recognition/1">
+                <img src="{{ url_for('static', filename='RedGroup.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Low Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 5</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <a href="/recognition/2">
-            <img src="{{ url_for('static', filename='GreyGroup.png') }}" alt="Logo" class="type-size-3 type-2-adjust">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/recognition/2">
+                <img src="{{ url_for('static', filename='GreyGroup.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">Neutral Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 3</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <a href="/recognition/3">
-            <img src="{{ url_for('static', filename='GreenGroup.png') }}" alt="Logo" class="type-size-3 type-3-adjust">
-        </a>
+    <div class="col-md-4 d-flex align-items-stretch"> <!-- Make each column flex and stretch to fill the height -->
+        <div class="card mb-4" style="width: 100%;"> <!-- Use mb-4 for consistent spacing, adjust '4' as needed -->
+            <!-- Wrap the image in an <a> tag to make it clickable -->
+            <a href="/recognition/3">
+                <img src="{{ url_for('static', filename='GreenGroup.png') }}" class="card-img-top image-modified card-border" alt="{{ item.title }}">
+            </a>
+            <div class="card-body d-flex flex-column"> <!-- Make card-body a flex container -->
+                <h5 class="card-title">High Cards</h5>
+                <p class="card-text"><strong>Number of Cards:</strong> 5</p>
+                
+            </div>
+        </div>
     </div>
 </div>
 {% endif %}
@@ -108,20 +188,20 @@
 {% if item.id == 1 %}
 <div class="row type-bottom"> <!-- Top row -->
     <div class="col-md-4"><a href="/home" class="btn btn-primary mt-auto">Back</a></div>
-    <div class="col-md-4"><span class="type-bottom-text intro"><i>Select a type</i></span></div>
-    <div class="col-md-4"><a href="/overview/1" class="btn btn-primary mt-auto type-bottom-bottom">Overview</a></div>
+    <div class="col-md-4"><span class="type-bottom-text-1 intro"><i>Select a type</i></span></div>
+    <div class="col-md-4"><a href="/overview/1" class="btn btn-primary mt-auto type-bottom-bottom-1">Overview</a></div>
 </div>
 {% elif item.id == 2 %}
 <div class="row type-bottom"> <!-- Top row -->
     <div class="col-md-4"><a href="/home" class="btn btn-primary mt-auto">Back</a></div>
-    <div class="col-md-4"><span class="type-bottom-text intro mech-text-adjust"><i>Select mechanic</i></span></div>
-    <div class="col-md-4"><a href="/overview/2" class="btn btn-primary mt-auto type-bottom-bottom">Overview</a></div>
+    <div class="col-md-4"><span class="type-bottom-text-1 intro mech-text-adjust"><i>Select mechanic</i></span></div>
+    <div class="col-md-4"><a href="/overview/2" class="btn btn-primary mt-auto type-bottom-bottom-1">Overview</a></div>
 </div>
 {% else %}
 <div class="row type-bottom"> <!-- Top row -->
     <div class="col-md-4"><a href="/home" class="btn btn-primary mt-auto">Back</a></div>
-    <div class="col-md-4"><span class="type-bottom-text intro"><i>Select a group</i></span></div>
-    <div class="col-md-4"><a href="/overview/3" class="btn btn-primary mt-auto type-bottom-bottom">Overview</a></div>
+    <div class="col-md-4"><span class="type-bottom-text-1 intro"><i>Select a group</i></span></div>
+    <div class="col-md-4"><a href="/overview/3" class="btn btn-primary mt-auto type-bottom-bottom-1">Overview</a></div>
 </div>
 {% endif %}
 
