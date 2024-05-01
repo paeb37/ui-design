@@ -22,8 +22,8 @@ data = [
         "title": "Card Types",
         "image": "https://nairobiwire.com/wp-content/uploads/2021/10/how-many-clubs-are-there-in-a-deck-of-cards.jpg",
         "summary": "Once rivals in school, two brilliant doctors reunite by chance - each facing life's worst slump and unexpectedly finding solace in each other.",
-        "actors": ["Shorter"],
-        "genres": ["Medium"],
+        "actors": ["2 minutes"],
+        "genres": ["2 minutes"],
     },
 
     {
@@ -31,8 +31,8 @@ data = [
         "title": "Card Mechanics",
         "image": "https://i.pinimg.com/originals/ba/bb/00/babb0057cd7526fc7df4893245449fda.jpg",
         "summary": "A lawyer bound by a centuries-old curse becomes entangled with a civil servant who holds the key to his freedom.",
-        "actors": ["Shorter"],
-        "genres": ["Shorter"],
+        "actors": ["2 minutes"],
+        "genres": ["1 minute"],
     },
 
     {
@@ -40,8 +40,8 @@ data = [
         "title": "Card Recognition",
         "image": "https://images.fineartamerica.com/images-medium-large-5/illustration-of-magnifying-glass-and-eye-representing-fanatic-studio--science-photo-library.jpg",
         "summary": "The residents of a high-rise apartment fight for their lives against a deadly infectious disease while Sae-bom and Yi-hyun try to find the person because of whom the virus spread.",
-        "actors": ["Longer"],
-        "genres": ["Medium"],
+        "actors": ["1 minute"],
+        "genres": ["2 minutes"],
     },
 
     {
